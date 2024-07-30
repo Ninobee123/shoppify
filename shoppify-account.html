@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+  <title> Cart details - Shoppify</title>
+  <link rel="stylesheet" href="shoppify.css">
+  <link  href="https://fonts.googleapis.com/css2? 
+  family=poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+ </head> 
+ <body>
+ 
+
+
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+              <img src="images/Screenshot__197_-removebg-preview.png" width="125px">
+        </div>
+        <nav>
+            <ul id="MenuItems">
+                <li><a href="#">Home</a> </li>
+                <li><a href="#">Product</a> </li>
+                <li><a href="#">About</a> </li>
+                <li><a href="#">Contact</a> </li>
+                <li><a href="#">Account</a> </li>
+            </ul>
+        </nav>
+        <img src="images/cart.png" width="30px" height="30px">
+        <img src="images/menu.png" class="menu-icon" onclick="menuToggle()">
+    </div>
+    </div>
+
+<!--------------------------- account page------------------------>
+<div id="preloader">
+<h1>Loading...</h1>
+
+</div>
+
+
+
+
+<div class="account-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <img src="images/image1.png" width="100%">
+      </div>
+      <div class="col-2">
+        <div class="form-container">
+  <div class="form-btn">
+    <span onclick="login()">Login</span>
+    <span onclick="Register()">Register</span>
+    <hr id="indicator">
+      </div>
+      <form id="LoginForm">
+        <input type="text" placeholder="username">
+        <input type="password" placeholder="password">
+       <button type="submit" class="btn"><a href="shoppify.html">Login</a></button>
+        <a href="">Forgot password</a>
+      </form>
+
+
+      <form id="RegForm">
+        <input type="text" placeholder="username">
+        <input type="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Enter your password">
+          <p id="message">Password is<span id="strength"></span></p>
+        <button type="submit" class="btn">Register</button>
+        <!----<p id="message">Password is <span id="strength"></span></p>-->
+      </form>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+</div>
+
+
+
+
+<!--------------------------- footer------------------------>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and ios mobile phone.</p>
+                <div class="app-logo">
+                    <img src="images/play-store.png">
+                    <img src="images/app-store.png">
+                </div>
+            </div>
+            <div class="footer-col-2">
+               <img src="images/logo-white.png">
+                <p>Our goal is to sustain and make the pleasureand benefits of sports accessible to the many</p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+            <ul>
+                <li>Coupons</li>
+                <li>Blog Post</li>
+                <li>Return Policy</li>
+                <li>Join Affliiate</li>
+            </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow us</h3>
+            <ul>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+                <li>Youtube</li>
+            </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">copyright 2024 - Ninobee</p>
+    </div>
+</div>
+
+<script src="shoppify.js"></script>
+<!--------Javascript for closing form----------------->
+<script>
+  let LoginForm = document.getElementById('LoginForm');
+  let RegForm = document.getElementById('RegForm');
+  let indicator = document.getElementById('indicator');
+
+  function Register(){
+    RegForm.style.transform = "translateX(0px)";
+    LoginForm.style.transform = "translateX(0px)";
+    indicator.style.transform = "translateX(100px)";
+  }
+
+  function login(){
+    RegForm.style.transform = "translateX(300px)";
+    LoginForm.style.transform = "translateX(300px)";
+    indicator.style.transform = "translateX(0px)";
+  }
+
+</script>
+
+
+<!--------Javascript for password strength----------------->
+<script>
+ 
+ document.addEventListener('DOMContentLoaded', () => {
+      let pass = document.getElementById("password");
+      let msg = document.getElementById("message");
+      let str = document.getElementById("strength");
+
+      pass.addEventListener('input', () => {
+        if (pass.value.length > 0) {
+          msg.style.display = 'block';
+        } else {
+          msg.style.display = 'none';
+        }
+        
+        if (pass.value.length < 4) {
+          str.textContent = 'Weak';
+          pass.style.borderColor = '#ff5925'; // change border color
+          msg.style.color = '#ff5925';        // change text color
+          str.style.color = '#ff5925';
+        } else if (pass.value.length >= 4 && pass.value.length < 8) {
+          str.textContent = 'Medium';
+          pass.style.borderColor = 'orange';  // change border color
+          msg.style.color = 'orange';         // change text color
+          str.style.color = 'orange';
+        } else if (pass.value.length >= 8) {
+          str.textContent= 'Strong';
+          pass.style.borderColor = '#26d730'; // change border color
+          msg.style.color = '#26d730';        // change text color
+          str.style.color = '#26d730';
+        }
+      });
+    });
+
+</script>
+
+
+<!-----------------Javascript for preloader-------->
+<script>
+
+  window.addEventListener("load", function() {
+      let loader = document.getElementById('preloader');
+      setTimeout(function() {
+        loader.style.display = "none";
+      }, 3000); // 3000 milliseconds = 3 seconds
+    });
+    
+  </script>
+
+
+ </body>
